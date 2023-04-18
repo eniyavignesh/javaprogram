@@ -1,0 +1,43 @@
+set verify off
+
+declare
+    emprec emp%rowtype;
+   cursor mycur is select * from emp;
+begin
+    open mycur;
+    loop
+    fetch mycur into emprec;
+    exit when mycur%NOTFOUND;    
+    dbms_output.put_line(emprec.empno || '     ' || emprec.sal || '    ' || emprec.deptno||'  ' || emprec.job); 
+    end loop;
+    close mycur;
+end;
+/
+
+ 
+
+
+declare
+  num1 number(5);
+  num2 number(5);
+  rev number(5);
+begin
+  num1:=&num1;
+  rev:=0;
+  FOR indx IN REVERSE num1
+  LOOP 
+      DBMS_OUTPUT.put_line (indx); 
+   END LOOP;
+  dbms_output.put_line('Reverse number is: '||rev);
+end;
+/
+
+ 
+
+BEGIN 
+   FOR indx IN REVERSE 1 .. 5 
+   LOOP 
+      DBMS_OUTPUT.put_line (indx); 
+   END LOOP; 
+END;
+/
