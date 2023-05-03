@@ -1,0 +1,16 @@
+package com.mph.annoconfig;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class ConfigMainClass {
+
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spr-annoxmlconfig.xml");
+		GreetingService gs1 = (GreetingService) context.getBean("greetingServiceImpl");
+		gs1.sayHi();
+		
+
+	}
+
+}
